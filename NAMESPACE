@@ -1,0 +1,6 @@
+useDynLib(mritc)
+
+export(readMRI, writeMRI, initOtsu, makeMRIspatial, rnormmix, emnormmix,
+       mritc, mritc.em, mritc.icm, mritc.hmrfem, mritc.pvhmrfem,
+       mritc.bayes, print.mritc, summary.mritc, plot.mritc, measureMRI)
+
