@@ -20,13 +20,28 @@ getConfs <- function(n, nc){
 
     matrix(unlist(cc(n)), nrow=n)
 }
-#compute the check table of probabilities for different neighbor configurations used in updating the indices based on a Potts model
-getCheck <- function(nneigh, k, beta, spatialMat){
+#get unique configurations 
+getConfsUni <- function(nneigh, k){
     com <- getConfs(k, nneigh+1)
     com <- com - 1
     or <- order(apply(com, 2, function(x)
                       sum(sapply(1:k, function(i) x[i]*(nneigh+1)^(i-1)))))
-    com <- com[,or]
+    com[,or]
+}
+
+#compute the check table of probabilities for different neighbor configurations used in updating the indices based on a Potts model
+getCheck <- function(nneigh, k, beta, spatialMat){
+    if(k==3){
+        if(nneigh==6) load(system.file("tables/tabn6k3.rda", package="mritc"))
+        else
+            if(nneigh==18) load(system.file("tables/tabn18k3.rda", package="mritc"))
+            else
+                if(nneigh==26) load(system.file("tables/tabn26k3.rda", package="mritc"))
+                else com <- getConfsUni(nneigh, k)     
+    }
+    else{
+        com <- getConfsUni(nneigh, k) 
+    }
     exp(beta *   t(apply(com, 2, function(x) spatialMat%*%x)))
 }
 
@@ -40,13 +55,15 @@ checkErrors <- function(prop=NULL, mu, sigma, err=NULL){
             stop("All 'sigma's have to be positive")
     }
     else{
-        k <- length(prop)
-        if (!(k == length(mu) && k == length(sigma)))
-            stop("The dimensions of 'prop', 'mu' and 'sigma' do NOT match.")
         if (!(all(prop > 0) && all(prop < 1)))
             stop("'prop' has to be between 0 and 1")
-        if (!all.equal(sum(prop), 1))
+        if (!isTRUE(all.equal(sum(prop), 1)))
             stop("Sum of 'prop' has to be 1")
+        if (!is.null(mu) && !is.null(sigma)){
+            k <- length(prop)
+            if (!(k == length(mu) && k == length(sigma)))
+                stop("The dimensions of 'prop', 'mu' and 'sigma' do NOT match.")
+        }
     }
     if (!all(sigma > 0))
         stop("All 'sigma's have to be positive")

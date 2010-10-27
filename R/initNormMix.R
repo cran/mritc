@@ -54,6 +54,15 @@ otsu <- function(y, m){
     thresh
 }
 
+initThresh <- function(y, thresh) {
+    z <- rowSums(outer(y, thresh, ">")) + 1
+    classes <- sort(unique(z))
+    list(prop = sapply(classes, function(i) mean(z == i)),
+         mu = sapply(classes, function(i) mean(y[z == i])),
+         sigma = sapply(classes, function(i) sd(y[z == i]))
+         )
+}
+
 initOtsu <- function(y, m) {
     if (length(m) > 1) {
         warning(paste("Argument m has", length(m), "elements: only the first used"))
@@ -62,10 +71,12 @@ initOtsu <- function(y, m) {
     if (length(y) - 1 < m)
         stop("The number of thresholds is too larger.")
     thresh <- otsu(y, m)
-    z <- rowSums(outer(y, thresh, ">")) + 1
-    classes <- sort(unique(z))
-    list(prop = sapply(classes, function(i) mean(z == i)),
-         mu = sapply(classes, function(i) mean(y[z == i])),
-         sigma = sapply(classes, function(i) sd(y[z == i]))
-         )
+    initThresh(y, thresh)
+}
+
+initProp <- function(y, prop) {
+    checkErrors(prop, mu=NULL, sigma=NULL, err=NULL)
+    prop <- cumsum(prop[-length(prop)])
+    thresh <- quantile(y, prop)
+    initThresh(y, thresh)
 }

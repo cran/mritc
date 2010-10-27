@@ -56,7 +56,6 @@ measureMRI <- function(intvec=NULL, actual, pre){
     mse <- mean((pre - actual) ^ 2)
   
     pvolume <- unlist(lapply(1:ncol(actual), function(i) sum(pre.discrete==i)))
-           
     rseVolume <-  sqrt((pvolume - colSums(actual))^2) / colSums(actual)
                    
     misclass <- mean(actual.discrete != pre.discrete)

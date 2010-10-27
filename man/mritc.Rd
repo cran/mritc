@@ -79,8 +79,8 @@
 	For \code{\link[mritc]{mritc.bayes}}, the default is 0.7
 	when \code{sub} is \code{FALSE} and 0.3 when \code{sub} is
 	\code{TRUE}.}
-  \item{sub}{logical; if \code{TRUE}, use the higher resolution model; otherwise,
-	use the whole voxel method.}
+  \item{sub}{logical; if \code{TRUE}, use the higher resolution model;
+	otherwise, use the whole voxel method.}
   \item{subvox}{for \code{\link[mritc]{mritc.bayes}},
 	the match up tabel of voxels and their corresponding
      subvoxels for the higher resolution model. It can be

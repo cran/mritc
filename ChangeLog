@@ -1,0 +1,24 @@
+2010-10-20  
+
+	* DESCRIPTION: Change the version of misc3d to 0.7-1, which
+	  has the crosshair bug fixed. Thanks go to Brandon Whitcher 
+	  for testing the package (version 0.3-1) and pointing out the bug.
+	  
+
+2010-08-25  
+
+	* R/common.R (checkErrors): Fix a bug in comparison sum(prop)==1.
+	* R/initOtsu.R: Change it to initNormMix.R. Besides initOtsu,
+	  add a new method initProp.  Pull out the part to get mu, sd,
+	  and prop based on threshold values.
+	  (initThresh): New function to get mu, sd, and prop based on 
+	  threshold values.
+	* man/initOtsu.Rd: Change it to initNormMix.Rd to add initProp.
+	* NAMESPACE: Add initProp.
+
+2010-08-24  
+
+	* R/common.R (getCheck): Use the pre-computed tables for simple cases.
+	  Pull out the part getting unique configurations.
+          (getConfsUni): New function to get unique configurations.
+	* DESCRIPTION: change to version 0.3-2
