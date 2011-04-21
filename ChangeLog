@@ -1,3 +1,14 @@
+2011-3-09 
+	* R/measureMRI.R: Use the discrete instead of the fuzzy membership to 
+	  obtain the true volumes and simplify the computation of rseVolume.
+	* DESCRIPTION: change to version 0.3-3
+	
+
+2011-3-04  
+
+	* R/measureMRI.R: Change the label of x-axis of the output density
+	  plot.
+	  
 2010-10-20  
 
 	* DESCRIPTION: Change the version of misc3d to 0.7-1, which

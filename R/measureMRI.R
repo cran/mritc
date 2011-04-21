@@ -56,7 +56,8 @@ measureMRI <- function(intvec=NULL, actual, pre){
     mse <- mean((pre - actual) ^ 2)
   
     pvolume <- unlist(lapply(1:ncol(actual), function(i) sum(pre.discrete==i)))
-    rseVolume <-  sqrt((pvolume - colSums(actual))^2) / colSums(actual)
+    avolume <- unlist(lapply(1:ncol(actual), function(i) sum(actual.discrete==i)))
+    rseVolume <-  abs(pvolume - avolume) / avolume
                    
     misclass <- mean(actual.discrete != pre.discrete)
 
@@ -65,10 +66,10 @@ measureMRI <- function(intvec=NULL, actual, pre){
     conTable <- getConTable(actual.discrete, pre.discrete)
 
     if(! is.null(intvec)){
-        intvec <- rep(intvec, 2)
+        intensity <- rep(intvec, 2)
         class <- c(actual.discrete, pre.discrete)
-        g <- rep(c("actual", "predicted"), each=length(intvec)/2)
-        dp <- densityplot(~ intvec | factor(class), groups = g,
+        g <- rep(c("actual", "predicted"), each=length(intensity)/2)
+        dp <- densityplot(~ intensity | factor(class), groups = g,
                     plot.points = FALSE, ref = TRUE,
                     auto.key = list(columns = 2),
                     layout=c(1,ncol(pre)))
