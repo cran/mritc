@@ -5,7 +5,7 @@
   Visualize MRI tissue classification results. 
 }
 \usage{
-   plot.mritc(x, ...)
+   \method{plot}{mritc}(x, ...)
 }
 \arguments{
    \item{x}{an object of class "mritc"}

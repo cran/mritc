@@ -164,7 +164,18 @@
   Dai Feng (2008)
   Bayesian Hidden Markov Normal Mixture Models with Application to MRI
   Tissue Classification
-  \emph{Ph. D. Dissertation, The University of Iowa} 
+  \emph{Ph. D. Dissertation, The University of Iowa}
+
+  Dai Feng and Luke Tierney (2011)
+  mritc: A Package for MRI Tissue Classification
+  \emph{Journal of Statistical Software}, \bold{vol. 44, no. 7} 1-20
+  \url{http://www.jstatsoft.org/v44/i07/}
+
+  Feng D, Tierney L, and Magnotta V (2012)
+  MRI Tissue Classification Using High Resolution
+  Bayesian Hidden Markov Normal Mixture Models
+  \emph{Journal of the American Statistical Association} Forthcoming
+
 } 
 \examples{
   #Example 1

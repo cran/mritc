@@ -5,7 +5,7 @@
   Print out some information of an object of class "mritc". 
 }
 \usage{
-   print.mritc(x, ...)
+   \method{print}{mritc}(x, ...)
 }
 \arguments{
    \item{x}{an object of class "mritc".}

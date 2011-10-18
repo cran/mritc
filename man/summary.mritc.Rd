@@ -5,7 +5,7 @@
   Summarize some information of an object of class "mritc". 
 }
 \usage{
-   summary.mritc(object, ...)
+   \method{summary}{mritc}(object, ...)
 }
 \arguments{
    \item{object}{an object of class "mritc".}

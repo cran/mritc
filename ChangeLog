@@ -1,3 +1,8 @@
+2011-10-18
+	* inst/CITATION: add citation to the JSS special volume paper
+	* man/mritc.Rd: add citation to the JSS special volume paper and JASA
+	paper
+	* DESCRIPTION: change to version 0.3-4
 2011-3-09 
 	* R/measureMRI.R: Use the discrete instead of the fuzzy membership to 
 	  obtain the true volumes and simplify the computation of rseVolume.
