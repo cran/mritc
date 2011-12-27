@@ -122,7 +122,11 @@
   The other parameters are taken as the default values
   for each method. The process is reported during iterations.
   
-} 
+}
+\note{
+  The functions support the various normal mixture models with
+  at most eight components.
+ }
 \value{
   For \code{\link[mritc]{mritc}}, it generates
   an object of class "mritc" which is a list containing the
@@ -171,10 +175,12 @@
   \emph{Journal of Statistical Software}, \bold{vol. 44, no. 7} 1-20
   \url{http://www.jstatsoft.org/v44/i07/}
 
-  Feng D, Tierney L, and Magnotta V (2012)
+  Feng D, Tierney L, and Magnotta V (2011)
   MRI Tissue Classification Using High Resolution
   Bayesian Hidden Markov Normal Mixture Models
-  \emph{Journal of the American Statistical Association} Forthcoming
+  \emph{Journal of the American Statistical Association}
+  Accepted for publication.
+  DOI: 10.1198/jasa.2011.ap09529
 
 } 
 \examples{

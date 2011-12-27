@@ -1,14 +1,26 @@
+2011-12-27
+	* DESCRIPTION: add 'tkrplot' to 'Suggests.' Thank Prof. Brian Ripley
+	  for pointing out that requirement.
+	* DESCRIPTION: change to version 0.3-5  
+	* man/mritc: add the note that the functions support 
+	the various normal mixture models with at most eight components. Thank 
+	Matthew Moores for pointing that out.
+ 	
+2011-10-26
+	* man/plot(print, summary).mritc.Rd: replace *.mritc with 
+	\method{*}{mritc}. Thanks go to Achim Zeileis for pointing that out. 
+
 2011-10-18
 	* inst/CITATION: add citation to the JSS special volume paper
 	* man/mritc.Rd: add citation to the JSS special volume paper and JASA
 	paper
 	* DESCRIPTION: change to version 0.3-4
+	
 2011-3-09 
 	* R/measureMRI.R: Use the discrete instead of the fuzzy membership to 
 	  obtain the true volumes and simplify the computation of rseVolume.
 	* DESCRIPTION: change to version 0.3-3
 	
-
 2011-3-04  
 
 	* R/measureMRI.R: Change the label of x-axis of the output density
@@ -19,8 +31,7 @@
 	* DESCRIPTION: Change the version of misc3d to 0.7-1, which
 	  has the crosshair bug fixed. Thanks go to Brandon Whitcher 
 	  for testing the package (version 0.3-1) and pointing out the bug.
-	  
-
+	
 2010-08-25  
 
 	* R/common.R (checkErrors): Fix a bug in comparison sum(prop)==1.

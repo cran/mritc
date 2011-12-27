@@ -1,5 +1,5 @@
-35245957c68c692d36c25589acd57f52 *ChangeLog
-dd63adc45762d995bf571d2f5ebd00cf *DESCRIPTION
+df08aced0a08f0675f29d8b86ddfae8d *ChangeLog
+be62d90e63812fb6114c13af5008431e *DESCRIPTION
 0384529983c9793cf0968b7c16bad3f9 *NAMESPACE
 d76c7708bf904a95fe509995c9638b1f *R/common.R
 4150e5a990255e37adeead9115799119 *R/getBlocksMRI.R
@@ -12,7 +12,7 @@ f4df213481c4e9b59d1616e33ceb08f5 *R/mritc.R
 e38b3836836f98378ad12ba0831a6da6 *R/mritc.bayes.R
 f258a830f6094cf2685fb37a127b2ef2 *R/mritc.em.R
 f98153e27cf9bf1c646627594f6821b7 *R/mritc.hmrfem.R
-d1073296c96b4ef305a412c5adda4297 *R/mritc.icm.R
+720a8828df3dc94982d9981574f472ac *R/mritc.icm.R
 d8df52cea958df6fcc7215e889e735e9 *R/mritc.pvhmrfem.R
 575ec3e4c9c81edcd1ba966b73c01379 *R/plot.mritc.R
 a94aec8bd273dd317b59dde6858a576a *R/print.mritc.R
@@ -37,7 +37,7 @@ f52b79cc924621af6b218650b29fae32 *man/initNormMix.Rd
 7d4edcdc60a27c9c4ca6e9df553f075c *man/makeMRIspatial.Rd
 868e5b55ddd74af0c10b673fb6342c31 *man/measureMRI.Rd
 23ca77a431b545b9f50868145f32c72e *man/mritc-package.Rd
-e81a4514bf4bc4c740f11e762bede2a2 *man/mritc.Rd
+99fe606cd35adca2f98c0e02f4c3e6f8 *man/mritc.Rd
 3a3d8be1df1051ca20de7ea1862af651 *man/plot.mritc.Rd
 5d40264c2647b8717c4e9556e5de7863 *man/print.mritc.Rd
 2e32d31c70fddb7ce03cb881d8075a23 *man/readMRI.Rd

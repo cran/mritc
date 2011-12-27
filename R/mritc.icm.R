@@ -25,6 +25,7 @@ mritc.icm <- function(y, neighbors, blocks, spatialMat=diag(1,3), beta=0.4, mu, 
         sigmaold <- sigma
         den <- getDen(yunique, n.yunique, ymatch, mu, sigma)
 
+        
         for (i in 1:length(blocks)){
             points <- blocks[[i]]
             prob[points,] <- updateProbs(neighbors[points,], nneigh, indices,
