@@ -1,5 +1,5 @@
-df08aced0a08f0675f29d8b86ddfae8d *ChangeLog
-be62d90e63812fb6114c13af5008431e *DESCRIPTION
+007c46d2032df905180c69ffe5ff5143 *ChangeLog
+0767a5b62cddcd62f1f88afa1f9da9f4 *DESCRIPTION
 0384529983c9793cf0968b7c16bad3f9 *NAMESPACE
 d76c7708bf904a95fe509995c9638b1f *R/common.R
 4150e5a990255e37adeead9115799119 *R/getBlocksMRI.R
@@ -36,7 +36,7 @@ dec5591f0c4f31fcc3f2f802f6bd4eed *inst/extdata/wm.rawb.gz
 f52b79cc924621af6b218650b29fae32 *man/initNormMix.Rd
 7d4edcdc60a27c9c4ca6e9df553f075c *man/makeMRIspatial.Rd
 868e5b55ddd74af0c10b673fb6342c31 *man/measureMRI.Rd
-23ca77a431b545b9f50868145f32c72e *man/mritc-package.Rd
+0093759f83abb24d18f00aac503eb367 *man/mritc-package.Rd
 99fe606cd35adca2f98c0e02f4c3e6f8 *man/mritc.Rd
 3a3d8be1df1051ca20de7ea1862af651 *man/plot.mritc.Rd
 5d40264c2647b8717c4e9556e5de7863 *man/print.mritc.Rd
@@ -44,9 +44,10 @@ f52b79cc924621af6b218650b29fae32 *man/initNormMix.Rd
 e295fb75a445a67a70033fe4ad02e1f9 *man/rnormmix.Rd
 7e7b76ca0100798af51ac9d99359c654 *man/summary.mritc.Rd
 f4a569839a9226c1469e4d4ba04632d4 *man/writeMRI.Rd
-9ffc594e8e71674f6b7c01626c41af71 *src/getDenSub.c
+95e3011e37d9dde0d75f3a3819b2acd3 *src/Makevars
+0dac287a95e62c3805587f5978f73624 *src/getDenSub_omp.c
 7793323480b23bfe0d6087c5043e7a00 *src/updateCounts.c
-8fd50d06b361e6b5f5d686c1e96e1a1a *src/updateIndices.c
 72061ebf8afca1414ee56757abd8b9d7 *src/updateIndicesHMRFEM.c
+eb4d47b191cabe294cff8353033361c3 *src/updateIndices_omp.c
 a120c66b19130c1a3953e5e922234f23 *src/updateY.c
 7c3e520255ece2bdd6e5e675cf18d168 *src/yIndicesSummaries.c

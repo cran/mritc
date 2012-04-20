@@ -1,3 +1,8 @@
+2012-4-19
+	* DESCRIPTION: change to version 0.4-0  
+	* src/: update the code to parallel version using the OpenMP.
+	* man/mritc-package.Rd: emphasize the parallel version using the OpenMP.
+	
 2011-12-27
 	* DESCRIPTION: add 'tkrplot' to 'Suggests.' Thank Prof. Brian Ripley
 	  for pointing out that requirement.

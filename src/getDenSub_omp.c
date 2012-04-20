@@ -33,6 +33,7 @@ SEXP getDenSub(SEXP sy, SEXP smu, SEXP ssigma)
 		double mu_j = mu[j];
 		double sigma_j = sigma[j];
 		double nc_j = M_1_SQRT_2PI / sigma_j;
+#pragma omp parallel for firstprivate(mu_j, sigma_j, nc_j)
 		for (i = 0; i < nvert; i++) {
 			double res = (y[i] - mu_j) / sigma_j;
 			den[i] = exp(-0.5 * res * res) * nc_j;

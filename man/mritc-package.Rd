@@ -112,8 +112,8 @@
 \section{Computation Issues}{
   To improve the speed, the table lookup method was used in various
   places, vectorized computation was used to take advantage of
-  conditional independence, and some computation tasks were fulfilled
-  using embedded \bold{C} code. A version using the parallel computation by
-  \bold{OpenMP} can be obtained upon request.
+  conditional independence. Some computations are performed by \bold{C}
+  code, and the \bold{OpenMP} is used to parallelize key loops in
+  the \bold{C} code.
 }
 \keyword{package}

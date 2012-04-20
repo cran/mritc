@@ -4,7 +4,8 @@
 #include <math.h>
 
 /* Destructively updates the indices in sZ */
-SEXP updateIndices(SEXP blocks, SEXP sneighbors, SEXP snneigh,
+/* openMP is used*/
+SEXP updateIndicesX(SEXP blocks, SEXP sneighbors, SEXP snneigh,
 				   SEXP sk, SEXP sZ, SEXP scheck, SEXP sden)
 {
 	if (TYPEOF(sneighbors) != INTSXP)
@@ -43,10 +44,8 @@ SEXP updateIndices(SEXP blocks, SEXP sneighbors, SEXP snneigh,
 		error("The leading dimension of 'Z', 'neighbors' and 'den' do not match.");
 	
     int ldC = LENGTH(scheck) / k;
-	double *den = REAL(sden);
+    double *den = REAL(sden);
     double *check = REAL(scheck);
-    double *prob = (double *) R_alloc(k, sizeof(double));
-    int *Ni = (int *) R_alloc(k, sizeof(int));
     int nblocks = LENGTH(blocks);
     int b;
 	
@@ -58,13 +57,24 @@ SEXP updateIndices(SEXP blocks, SEXP sneighbors, SEXP snneigh,
 		SEXP spoints = VECTOR_ELT(blocks, b);
 		int n = LENGTH(spoints);
 		int *points = INTEGER(spoints);
+		double *U = (double *) R_alloc(n, sizeof(double));
+		/*double *prob = (double *) R_alloc(k, sizeof(double));*/
+		/*  int *Ni = (int *) R_alloc(k, sizeof(int));*/
+   
 		int i;
-		double U;
+             
+		for (i = 0; i < n; i++)
+			U[i] = unif_rand();
 		
+
+#pragma omp parallel for firstprivate(k, ldD, ldN, ldZ, ldC, nneigh, neighbors, \
+				      Z, den, check, points, U)
 		for (i = 0; i < n; i++) {
 			int j, m;
 			double s = 0.0;
 			int number = 0;
+			double prob[10];
+			int Ni[10];
 			/* compute the posterior weights for the different classes */
 			for (j = 0; j < k; j++) {
 				Ni[j] = 0;
@@ -95,12 +105,11 @@ SEXP updateIndices(SEXP blocks, SEXP sneighbors, SEXP snneigh,
 					prob[j] = 1.0 / k;
 			
 			/* generate new Z[points[i] - 1,] entries */
-			U = unif_rand();
 			for (j = 0; j < k; j++)
 				Z[points[i] - 1 + j * ldZ] = 0;
 			for (m = 0, s = 0.0, j = 0; j < k - 1; j++) {
 				s += prob[j];
-				if (U > s) m++;
+				if (U[i] > s) m++;
 			}
 			Z[points[i] - 1 + m * ldZ] = 1;
 		}
@@ -111,3 +120,14 @@ SEXP updateIndices(SEXP blocks, SEXP sneighbors, SEXP snneigh,
     return sZ;
 }
 
+/* Non-destructive version */
+SEXP updateIndices(SEXP blocks, SEXP sneighbors, SEXP snneigh,
+				   SEXP sk, SEXP sZ, SEXP scheck, SEXP sden)
+{
+	SEXP val;
+    PROTECT(sZ = duplicate(sZ));
+    val = updateIndicesX(blocks, sneighbors, snneigh,
+						 sk, sZ, scheck, sden);
+    UNPROTECT(1);
+    return val;
+}
