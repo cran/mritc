@@ -19,24 +19,17 @@
 }
 \value{
   An array with the appropriate dimensions containing the image
-  volume. For the images of "Analyze" format, the ".hdr" file and
-  its corresponding ".img" file should be in the same directory.
-  For "NIfTI" format, If the extension of the filename is not
-  included, the function searches for the "nii.gz" file, then
-  for the ".nii" file, and finally for the "hdr/img" files in
-  pair.
+  volume. 
 }
 \details{
   The files of "Analyze" format are read in through the
-  functions \code{\link[AnalyzeFMRI]{f.read.analyze.volume}}.
-  The files of "NIfTI" format are read in through an adapted
-  version of \code{\link[fmri]{read.NIFTI}}. Besides the
-  original ".nii" files and the "hdr/img" files,
-  it can read the "nii.gz" files as well. 
+  function \code{\link[oro.nifti]{readANALYZE}}.
+  The files of "NIfTI" format are read in through
+  the function\code{\link[oro.nifti]{readNIfTI}}. 
 }
 \seealso{
-  \code{\link[AnalyzeFMRI]{f.read.analyze.volume}},
-  \code{\link[fmri]{read.NIFTI}}
+  \code{\link[oro.nifti]{readANALYZE}},
+  \code{\link[oro.nifti]{readNIfTI}}
 }
 \examples{
   \dontrun{
@@ -46,9 +39,7 @@
 
   vol3  <- readMRI("t1.nii", format="nifti")
 
-  vol4 <- readMRI("t1-nifti.img", format="nifti")
-
-  vol5 <- readMRI("t1-analyze.img", format="analyze")
+  vol4 <- readMRI("t1-analyze.img", format="analyze")
   }
 }
 \keyword{utilities}

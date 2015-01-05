@@ -22,16 +22,20 @@ getPos18 <- function(mask){
 }
 
 
-makeMRIspatial <- function(mask, nnei, sub){
+makeMRIspatial <- function(mask, nnei, sub=FALSE, bias=FALSE){
     if(! nnei %in% c(6, 18, 26))
         stop("'nnei' has to be among (6, 18, 26)")
-    if(nnei == 6) nblocks <- 2
+    if(nnei %in% c(4, 6)) nblocks <- 2
     else nblocks <- 8
-    
-    if(sub == FALSE){
+
+    weights <- NULL
+    weineighbors <- NULL
+
+    if(sub==FALSE){
         neighbors <- getNeighborsMRI(mask, nnei)
         blocks <- getBlocksMRI(mask, nblocks)
         subvox=NULL
+ 
     }
     else{
         submask <- split18(mask)
@@ -40,8 +44,17 @@ makeMRIspatial <- function(mask, nnei, sub){
         subvox <- getPos18(mask)
     }
     
-    result <- list(neighbors=neighbors, blocks=blocks, sub=sub, subvox=subvox)
+    if(bias==TRUE){
+        weights <-getWeightsMRI(nnei=nnei, sigma=1)
+        nvertex <- nrow(neighbors)
+        nei <- (neighbors < nvertex+1)
+        nei <- nei %*% weights
+        weineighbors <-  rowSums(nei) 
+    }
     
+    result <- list(neighbors=neighbors, blocks=blocks, sub=sub, subvox=subvox,
+                   weights=weights, weineighbors=weineighbors)
+ 
     result
 }
 

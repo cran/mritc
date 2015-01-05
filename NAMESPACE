@@ -5,3 +5,6 @@ export(readMRI, writeMRI, initOtsu, initProp, makeMRIspatial,
        mritc.pvhmrfem, mritc.bayes, print.mritc, summary.mritc,
        plot.mritc, measureMRI)
 
+importFrom("lattice", densityplot)
+importFrom("misc3d", slices3d)
+import(oro.nifti)

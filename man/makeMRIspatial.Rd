@@ -4,7 +4,7 @@
 \description{Obtain various spatial features of an MR image, which are
   used in tissue classification.}
 \usage{
-   makeMRIspatial(mask, nnei, sub)
+   makeMRIspatial(mask, nnei, sub, bias)
 }
 \arguments{
    \item{mask}{three dimensional array. The voxels with value 1 are
@@ -21,7 +21,9 @@ inside the mask.}
 	 which splits each voxel into
 	 eight subvoxels is generated, and then obtain the neighbors and blocks
 	 of subvoxels; otherwise obtain the neighbors and blocks at
-	 the voxel level.}
+	 the voxel level. The default if \code{FALSE}.}
+   \item{bias}{logical; if \code{TRUE}, the spatial parameters for biased
+	 field correction are calculated. The default if \code{FALSE}.}
 }
 \value{
   A list containing the following components:
@@ -38,17 +40,29 @@ inside the mask.}
   \item{subvox}{if \code{sub} is \code{TRUE}, it is a matrix,
 	with each row giving the eight subvoxels of a voxel;
 	otherwise it is equal to \code{NULL}.}
+  \item{weights}{if \code{bias} is \code{TRUE}, it is a vector
+	of weights of neighbors of every voxel for bias field correction;
+	otherwise it is equal to \code{NULL}. The default is \code{NULL}.}
+  \item{weineighbors}{if \code{bias} is \code{TRUE}, it is a vector
+	of sum of weights of neighbors for bias field correction, one
+	element per voxel;
+	otherwise it is equal to \code{NULL}. The default is \code{NULL}.}
 }
 \references{
- Dai Feng (2008)
- Bayesian Hidden Markov Normal Mixture Models with Application to MRI
- Tissue Classification
- \emph{Ph. D. Dissertation, The University of Iowa} 
+  Dai Feng, Dong Liang, and Luke Tierney (2013)
+  An unified Bayesian hierarchical model for MRI tissue classification
+  \emph{Statistics in Medicine}
+
+  Dai Feng (2008)
+  Bayesian Hidden Markov Normal Mixture Models with Application to MRI
+  Tissue Classification
+  \emph{Ph. D. Dissertation, The University of Iowa} 
 } 
 \examples{
   mask <- array(1, dim=c(2,2,2))
   spa <- makeMRIspatial(mask, nnei=6, sub=FALSE)
   spa <- makeMRIspatial(mask, nnei=6, sub=TRUE)
+  spa <- makeMRIspatial(mask, nnei=26, sub=TRUE, bias=TRUE)
 }
 \keyword{spatial}
 

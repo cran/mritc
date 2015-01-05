@@ -6,9 +6,9 @@
   Use various methods to do MRI tissue classification.
 }
 \section{Introduction}{This package provides tools for MRI tissue
-  classification using normal mixture models and (higher resolution)
-  hidden Markov normal
-  mixture models fitted by various methods.
+  classification using normal mixture models and hidden Markov normal
+  mixture models (with the partial volume effect and intensity non-uniformity
+  addressed) fitted by various methods.
 
   Magnetic resonance imaging (MRI) is used to
   identify the major tissues within a subject's brain. 
@@ -60,10 +60,31 @@
   For each voxel
   the measured value is the sum of the unobserved measurements for the
   subvoxels. The subvoxels are in turn assumed to be homogeneous and
-  follow the simpler model described above. This approach could
-  provide more accurate tissue classification and also allow more
-  effective estimation of the proportion of each voxel that belongs
-  to each of the major tissue types. 
+  follow the simpler model described above. 
+
+  Intensity non-uniformity is an artifact that the signal intensity
+  varies smoothly across an image. It is caused by combination
+  and interaction of effects from the device, pulse sequence, and
+  object. A commonly used approach to tackle it is to assume the 
+  the measured signal is equal to true signal multiplied by bias field
+  associated with the intensity non-uniformity plus some noise. 
+  The bias field needs to be spatially smoothly varying and is modeled
+  as either jointly normally distributed, or a linear combination of
+  smooth spline or polynomial basis functions. Instead, we propose using
+  a locally smoothed prior on the bias field.
+
+  A Bayesian hierarchical model aiming at modeling the partial volume
+  effect and intensity non-uniformity simultaneously was proposed.
+  Instead of splitting the task into different steps, the framework
+  harmoniously integrates several sub-models addressing different issues
+  in the MRI classification, through specification of the likelihood function
+  and prior distributions. This approach could provide more accurate
+  tissue classification and also allow more effective estimation of the
+  proportion of each voxel that belongs to each of the major tissue
+  types.
+
+  Besides brain image segmentation, the methods provided in this package can be used for 
+  classification of other spatial data as well.
 }
 \section{Usage}{
   The function \code{\link[mritc]{readMRI}} and
@@ -86,8 +107,8 @@
   mixture model at the voxel level fitted by the Iterated
   Conditional Mode algorithm, the Hidden Markov Random Field EM
   algorithm,
-  or the Bayesian method, and the higher
-  resolution model fitted by the Bayesian method.  The function
+  or the Bayesian method (with or without the PV 
+  or bias field correction).  The function
   \code{\link[mritc]{mritc.pvhmrfem}} is for classification using Gaussian
   partial volume hidden Markov random field models fitted by the
   modified EM algorithm.
@@ -111,9 +132,10 @@
 }
 \section{Computation Issues}{
   To improve the speed, the table lookup method was used in various
-  places, vectorized computation was used to take advantage of
-  conditional independence. Some computations are performed by \bold{C}
+  places; vectorized computation was used to take advantage of
+  conditional independence. 
+  Some computations are performed by \bold{C}
   code, and the \bold{OpenMP} is used to parallelize key loops in
-  the \bold{C} code.
+  the \bold{C} code. Sparse matrix multiplication is adopted as well.
 }
 \keyword{package}

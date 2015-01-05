@@ -1,3 +1,19 @@
+2014-12-27
+        * R/mriio.R: the input and output of files of format "ANALYZE" and "NIfTI"
+	are implemented through functions from the package "oro.nifti". They do not
+	depend on the functions from the packages "AnalyzeFMRI" and "fmri" anymore.
+	* R/writeNIfTI.R, readNIfTI.R: deleted.
+	* DESCRIPTION/NAMESPACE/readMRI.Rd/writeMRI.Rd: changed accordingly. 
+	
+2013-9-29
+	* DESCRIPTION: change to version 0.5-0  
+	* src/: add the code for bias field correction.
+	* man/mritc-package.Rd, mritc.Rd, makeMRIspatial.Rd: add the description 
+	related to the bias filed correction.
+	* R/mritc.R, mrispatial.R: add the code for bias filed correction.
+	* R/getWeightsMRI.R: add this function to obtain weights used for bias 
+	filed correction.
+
 2012-4-19
 	* DESCRIPTION: change to version 0.4-0  
 	* src/: update the code to parallel version using the OpenMP.

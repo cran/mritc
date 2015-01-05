@@ -53,6 +53,7 @@ similar the results from the two methods.
   pre <- do.call(cbind, lapply(1:3, function(i) ifelse(pre==i, 1, 0)))
   measureMRI(intvec, actual, pre)
 
+   \dontrun{
   #Example 2
   T1 <- readMRI(system.file("extdata/t1.rawb.gz", package="mritc"),
                 c(91,109,91), format="rawb.gz")
@@ -69,6 +70,7 @@ similar the results from the two methods.
   truth <- cbind(csf[mask==1], gm[mask==1], wm[mask==1])
   truth <- truth/255
   measureMRI(T1[mask==1], truth, tc.icm$prob)
+  }
 }
 \keyword{utilities}
 
