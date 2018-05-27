@@ -1,6 +1,6 @@
-f80d01df5923edfabb2febc7d52120b7 *ChangeLog
-198ccba0de208280b0b71b9dd0aafe97 *DESCRIPTION
-c2c5be47bdfd8cb530c2f0e600481ec3 *NAMESPACE
+7efec25c6cad9a7f75f4c07238a79d4c *ChangeLog
+37717a699e4ea68960e220e74cf975d6 *DESCRIPTION
+b85ce5e4f21d275a7da4af9d070fcea3 *NAMESPACE
 d76c7708bf904a95fe509995c9638b1f *R/common.R
 4150e5a990255e37adeead9115799119 *R/getBlocksMRI.R
 81eb6aecfbec46c3429770c7a0e35232 *R/getNeighborsMRI.R
@@ -10,7 +10,7 @@ d76c7708bf904a95fe509995c9638b1f *R/common.R
 7b65e8caca167e522e318b05b7856937 *R/mriio.R
 d6ea33f51c755bffa85f45a693aec598 *R/mrispatial.R
 cbe9b137f142d897053493052a37fff4 *R/mritc.R
-5f4b2f5369cf1130e9f23a8d80064310 *R/mritc.bayes.R
+03b4cfd0a068caafab0a2ceb757d41ce *R/mritc.bayes.R
 f258a830f6094cf2685fb37a127b2ef2 *R/mritc.em.R
 f98153e27cf9bf1c646627594f6821b7 *R/mritc.hmrfem.R
 720a8828df3dc94982d9981574f472ac *R/mritc.icm.R
@@ -46,6 +46,7 @@ ca4af42f8fadda057e9c87b7e0d0d762 *man/writeMRI.Rd
 95e3011e37d9dde0d75f3a3819b2acd3 *src/Makevars
 82820060089184d8012c12a6aebc8565 *src/getDenSubBias_omp.c
 0dac287a95e62c3805587f5978f73624 *src/getDenSub_omp.c
+7c22b1b500cab25872924e218f1645f5 *src/registerDynamicSymbol.c
 03c99b75496c255c7f9af1dc10302cbd *src/updateBiasInde_omp.c
 90f3eefae86eb812bc192ed0583f9e96 *src/updateBiasWeights_omp.c
 7793323480b23bfe0d6087c5043e7a00 *src/updateCounts.c

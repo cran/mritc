@@ -258,6 +258,9 @@ mritc.bayes.bias <- function(y, neighbors, blocks, subvox,
     musave <- matrix(0, ncol=k, nrow=niter)
     sigmasave <- matrix(0, ncol=k, nrow=niter)
     
+    sigmaomegasave <- rep(0, niter)
+    ysave <- rep(0, length(y))
+    biassave <- rep(0, length(bias))
     for (i in 1:(niter+nInde)){
         den <- getDenSubBias(y, bias, mu, sigma)
 
@@ -279,6 +282,7 @@ mritc.bayes.bias <- function(y, neighbors, blocks, subvox,
         sigma <- updateSdsB(Nj, ybar, S2j, mu, lambda, phi, k)
         
         if(i > nInde){
+            ysave <- ysave + y
             musave[(i-nInde),] <- mu
             sigmasave[(i-nInde),] <- sigma
         }
@@ -300,6 +304,7 @@ mritc.bayes.bias <- function(y, neighbors, blocks, subvox,
             bias <- updateBias(y, bias, blocks.bias, neighbors.bias, nneigh.bias,
                                weineighbors.bias, indices, mu, sigma, gamma,
                                weights.bias)
+            biassave <- biassave + bias
         }
         
         if(i > nInde){
@@ -314,7 +319,7 @@ mritc.bayes.bias <- function(y, neighbors, blocks, subvox,
             weineighbors.bias <- omega$weineighbors
             
             
-            #sigmaomegasave[(i-nInde)] <- sigma.omega
+            sigmaomegasave[(i-nInde)] <- sigma.omega
         }
         
         if(verbose){
@@ -325,7 +330,13 @@ mritc.bayes.bias <- function(y, neighbors, blocks, subvox,
     }
     
     prob <- class <- MCMCSubclass(indicesMCMC[-(nvert+1),], niter, subvox)$fussy.vox
-    list(prob=prob, mu=colMeans(musave), sigma=colMeans(sigmasave))
+    #list(prob=prob, mu=colMeans(musave), sigma=colMeans(sigmasave))
+    list(prob=prob, indices=indicesMCMC/niter,
+         mu=colMeans(musave), sigma=colMeans(sigmasave),
+         y=ysave/niter, bias=biassave/niter,
+         xi=xi, eta=eta, lambda=lambda, phi=phi,
+         gamma.a=gamma.a, gamma.b=gamma.b,
+         ubsigma.omega=ubsigma.omega, sigma.omega.ini=mean(sigmaomegasave))
 }
 
 mritc.bayes <- function(y, neighbors, blocks, sub, subvox,

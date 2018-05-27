@@ -1,10 +1,18 @@
-useDynLib(mritc)
+useDynLib(mritc, .registration = TRUE)
 
 export(readMRI, writeMRI, initOtsu, initProp, makeMRIspatial,
        rnormmix, emnormmix, mritc, mritc.em, mritc.icm, mritc.hmrfem,
-       mritc.pvhmrfem, mritc.bayes, print.mritc, summary.mritc,
-       plot.mritc, measureMRI)
+       mritc.pvhmrfem, mritc.bayes, measureMRI)
+
+S3method(print, mritc)
+S3method(summary, mritc)
+S3method(plot, mritc)
 
 importFrom("lattice", densityplot)
 importFrom("misc3d", slices3d)
 import(oro.nifti)
+
+importFrom("graphics", "plot")
+importFrom("stats", "dnorm", "pnorm", "qnorm", "quantile", "rgamma",
+           "rnorm", "runif", "sd")
+importFrom("methods", "as")
