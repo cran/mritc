@@ -1,4 +1,7 @@
 2018-05-26
+        DESCRIPTION: change email address and version 0.5-2.  
+        
+2018-05-26
         * NAMESPACE: add functions to imports field.
         * Add the missing S3 method registrations. 
 
