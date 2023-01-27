@@ -9,12 +9,12 @@ citEntry(entry = "Article",
   volume       = "44",
   number       = "7",
   pages        = "1--20",
-  url          = "http://www.jstatsoft.org/v44/i07/",
+  url          = "https://www.jstatsoft.org/v44/i07/",
 
   textVersion  =
   paste("Dai Feng, Luke Tierney (2011).",
         "mritc: A Package for MRI Tissue Classification.",
         "Journal of Statistical Software, 44(7), 1-20.",
-        "URL http://www.jstatsoft.org/v44/i07/.")
+        "URL https://www.jstatsoft.org/v44/i07/.")
 )
 

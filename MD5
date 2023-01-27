@@ -1,5 +1,5 @@
-6a33fff5b0291fafa2f957f5a595e66f *ChangeLog
-19527f1b6128fa820727866e969c0060 *DESCRIPTION
+0e47b4e0d4824a7b8a4d1fe8c4362d2a *ChangeLog
+58e52c59c6e7b0cb3316da5fa3f568a7 *DESCRIPTION
 b85ce5e4f21d275a7da4af9d070fcea3 *NAMESPACE
 d76c7708bf904a95fe509995c9638b1f *R/common.R
 4150e5a990255e37adeead9115799119 *R/getBlocksMRI.R
@@ -22,7 +22,7 @@ e6a35b52c171c72963d196c0e1bba507 *R/sub.R
 a1349cf202247b7192471c7d042277dd *R/summary.mritc.R
 e05a051b3b87bf7e071767fc3f42413c *R/update.R
 a8911321a10c433a39443cd280411386 *TODO
-6c8453fed9995dc9e9b8a3e5e413af13 *inst/CITATION
+f079d64aafe896bb7b49209d68140ce4 *inst/CITATION
 2ef6b18c500ee8351fd2a10c1e9e612f *inst/extdata/csf.rawb.gz
 6b1f6d76ec6faab6bfaabf2c913b8c86 *inst/extdata/gm.rawb.gz
 3ed96f3d495026f8086f8d692ca09ef1 *inst/extdata/mask.rawb.gz
@@ -34,9 +34,9 @@ dec5591f0c4f31fcc3f2f802f6bd4eed *inst/extdata/wm.rawb.gz
 5d669b44eb7737033636462d1c30aa65 *man/emnormmix.Rd
 f52b79cc924621af6b218650b29fae32 *man/initNormMix.Rd
 e06cd1065c2f302efbb5d30457f35787 *man/makeMRIspatial.Rd
-3ef8fc250ec4bb9898b057cbb5d1f925 *man/measureMRI.Rd
+a44bf67a47b11d389f66b29ad2757a77 *man/measureMRI.Rd
 a20f21b47ca9749f52df1381e33e8bc0 *man/mritc-package.Rd
-dc2a9260f3aa957325476077ad899406 *man/mritc.Rd
+6e9981aab803bb150082706869e0fcfc *man/mritc.Rd
 3a3d8be1df1051ca20de7ea1862af651 *man/plot.mritc.Rd
 5d40264c2647b8717c4e9556e5de7863 *man/print.mritc.Rd
 27897e5825a57300da8ac8c88eab76c1 *man/readMRI.Rd
@@ -54,7 +54,7 @@ ca4af42f8fadda057e9c87b7e0d0d762 *man/writeMRI.Rd
 72061ebf8afca1414ee56757abd8b9d7 *src/updateIndicesHMRFEM.c
 eb4d47b191cabe294cff8353033361c3 *src/updateIndices_omp.c
 1b9042d1558a31569cc922df7806567d *src/updateSmoothWeights.c
-a120c66b19130c1a3953e5e922234f23 *src/updateY.c
-41b10dffd4ff0abc5af5923f0675f67b *src/updateYBias.c
+ef03041b19f441cb49310697de862811 *src/updateY.c
+7cb191f5307ce5abe71916af40b48d26 *src/updateYBias.c
 7c3e520255ece2bdd6e5e675cf18d168 *src/yIndicesSummaries.c
 9caaba93568efb96072af59bfc6d3d6a *src/yIndicesSummariesBias.c

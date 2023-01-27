@@ -43,7 +43,7 @@ SEXP updateYBias(SEXP ss, SEXP sbias, SEXP ssubvox, SEXP sZ, SEXP smu, SEXP ssig
     int *Z = INTEGER(sZ);
     double *mu = REAL(smu);
     double *sigma = REAL(ssigma);
-    SEXP val = allocVector(REALSXP, nvert);
+    SEXP val = PROTECT(allocVector(REALSXP, nvert));
     double *Y = REAL(val);
     int i, j, b;
     double *a = (double *) R_alloc(nsub, sizeof(double));
@@ -89,5 +89,6 @@ SEXP updateYBias(SEXP ss, SEXP sbias, SEXP ssubvox, SEXP sZ, SEXP smu, SEXP ssig
 	
     PutRNGstate();
 	
+    UNPROTECT(1);
     return val;
 }

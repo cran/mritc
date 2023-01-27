@@ -53,7 +53,7 @@ similar the results from the two methods.
   pre <- do.call(cbind, lapply(1:3, function(i) ifelse(pre==i, 1, 0)))
   measureMRI(intvec, actual, pre)
 
-   \dontrun{
+   \donttest{
   #Example 2
   T1 <- readMRI(system.file("extdata/t1.rawb.gz", package="mritc"),
                 c(91,109,91), format="rawb.gz")
